@@ -1,11 +1,11 @@
 /* === Black & Yellow Theme === */
 :root{
-  --bg:#0a0a0a; /* page background (near-black) */
-  --card:#111111; /* card/section panels */
-  --ink:#f5f5f5; /* main text (off‑white for contrast) */
-  --muted:#c9c9c9; /* secondary text */
+  --bg:#0a0a0a;
+  --card:#111111;
+  --ink:#f5f5f5;
+  --muted:#c9c9c9;
   --brand:#ffd60a; /* primary yellow */
-  --brand2:#ffea00; /* secondary yellow */
+  --brand2:#ffea00; /* highlight yellow */
   --accent:#ffb703; /* warm accent */
 }
 
@@ -44,16 +44,17 @@ body{
 }
 .hero-content{ display:grid; grid-template-columns: 1.4fr 1fr; gap:40px; align-items:center; width:min(1100px,92%); margin:0 auto; }
 .hero-text h1{ font-size:2.4rem; margin:0 0 6px; letter-spacing:0.5px; }
-.hero-text h2{ font-size:1.25rem; color:var(--brand2); margin:0 0 14px; font-weight:600; }
+.hero-text h2{ color:var(--brand2); }
 .hero-text p{ color:var(--ink); opacity:0.9; margin-bottom:20px; }
 .hero-ctas{ display:flex; gap:12px; margin-bottom:10px; }
 .hero-meta{ display:flex; gap:16px; flex-wrap:wrap; color:var(--muted); font-size:0.95rem; }
-.hero-meta a{ color:#e8e8e8; text-decoration:none; }
+.hero-meta a{ color:#e8e8e8; }
 .hero-meta a:hover{ color:var(--brand2); }
 
 .hero-photo img{
   width:100%; max-width:320px; border-radius:16px; display:block; margin:0 auto;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,214,10,0.35) inset;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(255,214,10,0.35) inset;
 }
 
 h3{ font-size:1.6rem; margin:0 0 18px; }
@@ -94,22 +95,20 @@ h4{ margin:0 0 10px; font-size:1.1rem; }
 .contact-list li{ margin:6px 0; color:var(--ink); }
 
 .btn{
-  display:inline-block;
   background:linear-gradient(90deg, var(--brand), var(--accent));
-  color:#111; /* dark text on yellow */
-  text-decoration:none;
-  padding:10px 14px; border-radius:10px; font-weight:700;
+  color:#111; font-weight:700;
   border:1px solid rgba(0,0,0,0.2);
 }
 .btn:hover{ filter:brightness(1.03); }
-.btn-secondary{
+.btn.btn-secondary{
   background:transparent; color:var(--ink);
   border:1px solid rgba(255,214,10,0.5);
 }
 .btn-small{ padding:8px 12px; font-size:0.92rem; }
 
 .site-footer{
-  border-top:1px solid rgba(255,214,10,0.25); padding:24px 0; color:var(--muted);
+  border-top:1px solid rgba(255,214,10,0.25);
+  padding:24px 0; color:var(--muted);
   background:rgba(0,0,0,0.25);
 }
 
