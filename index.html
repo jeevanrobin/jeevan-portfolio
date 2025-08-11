@@ -1,0 +1,212 @@
+<!DOCTYPE html>python -m http.server 5500
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>M Jeevan Reddy — GCP DevOps Engineer</title>
+  <meta name="description" content="Portfolio of M Jeevan Reddy, GCP DevOps Engineer specializing in GKE, Terraform, CI/CD, and Cloud Observability." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="logo" href="#hero">JR</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact" class="btn btn-small">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero" class="hero section">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>M Jeevan Reddy</h1>
+          <h2>GCP DevOps Engineer</h2>
+          <p>
+            I build reliable cloud infrastructure on GCP and AWS, automate delivery with CI/CD, and optimize Kubernetes workloads at scale.
+          </p>
+          <div class="hero-ctas">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="assets/resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+          </div>
+          <div class="hero-meta">
+            <a href="mailto:medidajeevanreddy499@gmail.com">medidajeevanreddy499@gmail.com</a>
+            <a href="https://www.linkedin.com/in/jeevanrobin" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+            <a href="https://github.com/jeevanrobin" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+            <a href="#" target="_blank" rel="noopener" aria-label="X">X</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="assets/profile.jpg" alt="M Jeevan Reddy headshot" />
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <h3>About</h3>
+        <p>
+          GCP-focused DevOps Engineer with strong hands-on experience in Kubernetes (GKE), Terraform, CI/CD (Jenkins, Cloud Build), observability (Cloud Monitoring, Logging, Prometheus, Grafana), and automation with Bash/Python. I design secure, scalable infrastructure, streamline delivery pipelines, and help teams ship faster with confidence.
+        </p>
+        <ul class="highlights">
+          <li>Kubernetes on GKE: blue/green and rolling deployments, autoscaling, and observability.</li>
+          <li>Infrastructure as Code with Terraform: reusable modules, multi-env provisioning, policy-as-code.</li>
+          <li>End-to-end CI/CD with Jenkins, GitHub/GitLab, Maven, SonarQube, and Cloud Build.</li>
+          <li>Secure by default with IAM, Secret Manager, and least-privilege access patterns.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section alt">
+      <div class="container">
+        <h3>Skills</h3>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h4>Cloud Platforms</h4>
+            <p>GCP: Compute Engine, GKE, Cloud Storage, VPC, IAM, Pub/Sub, Cloud Functions, Cloud SQL, BigQuery, Load Balancing, Filestore, Cloud DNS, Secret Manager, Monitoring, Logging, KMS</p>
+          </div>
+          <div class="skill-card">
+            <h4>DevOps & CI/CD</h4>
+            <p>Jenkins, Cloud Build, Git, GitHub, GitLab, Maven, SonarQube</p>
+          </div>
+          <div class="skill-card">
+            <h4>IaC</h4>
+            <p>Terraform, Deployment Manager, Ansible</p>
+          </div>
+          <div class="skill-card">
+            <h4>Containers & Orchestration</h4>
+            <p>Docker, Kubernetes (GKE)</p>
+          </div>
+          <div class="skill-card">
+            <h4>Monitoring & Observability</h4>
+            <p>Cloud Monitoring, Prometheus, Grafana, Cloud Logging</p>
+          </div>
+          <div class="skill-card">
+            <h4>Scripting & Automation</h4>
+            <p>Bash, Python</p>
+          </div>
+          <div class="skill-card">
+            <h4>Security</h4>
+            <p>GCP IAM, Secret Manager, Cloud Identity</p>
+          </div>
+          <div class="skill-card">
+            <h4>Operating Systems</h4>
+            <p>Linux (Ubuntu, CentOS), Windows</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section">
+      <div class="container">
+        <h3>Experience</h3>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-header">
+              <h4>HCL</h4>
+              <span class="meta">Jun 2021 — Jun 2023 • DevOps Engineer</span>
+            </div>
+            <ul>
+              <li>Provisioned AWS infrastructure using Terraform with reusable modules for EC2, VPC, and networking.</li>
+              <li>Implemented CI with Jenkins and Maven; automated build, deploy, and test across targets.</li>
+              <li>Integrated Jenkins with Git (webhooks), enabling continuous deployment workflows.</li>
+              <li>Set up and managed Jenkins as a service, including slaves/nodes for workload distribution.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-header">
+              <h4>Smartried</h4>
+              <span class="meta">Jun 2017 — May 2021 • DevOps Engineer</span>
+            </div>
+            <ul>
+              <li>Launched and managed EC2 instances; configured app-specific environments on Linux/Ubuntu.</li>
+              <li>Used CloudWatch for alarms, log insights, and automated actions to improve operations.</li>
+              <li>Owned branching/release activities with Git/GitHub; built artifacts using Maven integrated with Jenkins and SonarQube.</li>
+              <li>Deployed Java apps to Apache/Tomcat; managed AMIs, S3, snapshots, VPCs, subnets, ELB, and Auto Scaling.</li>
+              <li>Automated configuration with Ansible; wrote Dockerfiles and managed container images.</li>
+              <li>Set up RDS, S3, Route 53, and migrations from on‑prem to cloud; handled EC2 troubleshooting and bootstrap scripts.</li>
+              <li>Hardened SSH access and optimized package management with YUM/RPM.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section alt">
+      <div class="container">
+        <h3>Projects</h3>
+        <div class="projects-grid">
+          <article class="project-card">
+            <h4>GKE Microservices Platform</h4>
+            <p>Provisioned GKE with Terraform; implemented blue/green deployments, HPA, and centralized logging/metrics via Cloud Logging and Prometheus.</p>
+            <p class="tech">GCP, GKE, Terraform, Prometheus, Grafana, Cloud Monitoring</p>
+            <div class="links">
+              <a href="#" class="btn btn-small">Case Study</a>
+              <a href="#" class="btn btn-small btn-secondary">Repo</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h4>CI/CD with Jenkins + Maven</h4>
+            <p>End-to-end pipeline including build, unit tests, quality gates (SonarQube), artifact versioning, and deployment to staging/production.</p>
+            <p class="tech">Jenkins, Maven, Git, SonarQube, Ansible</p>
+            <div class="links">
+              <a href="#" class="btn btn-small">Pipeline Docs</a>
+              <a href="#" class="btn btn-small btn-secondary">Jenkinsfile</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h4>AWS Infra as Code</h4>
+            <p>Reusable Terraform modules to provision EC2, VPC, subnets, NAT/IGW, ALB, and autoscaling groups; parameterized per environment.</p>
+            <p class="tech">AWS, Terraform, EC2, VPC, ALB, ASG</p>
+            <div class="links">
+              <a href="#" class="btn btn-small">Module Overview</a>
+              <a href="#" class="btn btn-small btn-secondary">Repo</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h3>Contact</h3>
+        <p>Open to roles in DevOps, Cloud Engineering, and SRE. Reach out for collaborations or opportunities.</p>
+        <ul class="contact-list">
+          <li><strong>Email:</strong> <a href="mailto:medidajeevanreddy499@gmail.com">medidajeevanreddy499@gmail.com</a></li>
+          <li><strong>Location:</strong> Mutthagudem, Telangana, India</li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jeevanrobin" target="_blank" rel="noopener">linkedin.com/in/jeevanrobin</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/jeevanrobin" target="_blank" rel="noopener">github.com/jeevanrobin</a></li>
+          <li><strong>X:</strong> <a href="#" target="_blank" rel="noopener">Add your link</a></li>
+        </ul>
+        <a class="btn" href="mailto:medidajeevanreddy499@gmail.com?subject=Opportunity%20for%20GCP%20DevOps%20Engineer">Email Me</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> M Jeevan Reddy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
