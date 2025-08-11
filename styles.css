@@ -1,18 +1,19 @@
+/* === Black & Yellow Theme === */
 :root{
-  --bg:#0b0f17;
-  --card:#111827;
-  --ink:#e5e7eb;
-  --muted:#9ca3af;
-  --brand:#38bdf8;
-  --brand2:#22d3ee;
-  --accent:#8b5cf6;
+  --bg:#0a0a0a; /* page background (near-black) */
+  --card:#111111; /* card/section panels */
+  --ink:#f5f5f5; /* main text (off‑white for contrast) */
+  --muted:#c9c9c9; /* secondary text */
+  --brand:#ffd60a; /* primary yellow */
+  --brand2:#ffea00; /* secondary yellow */
+  --accent:#ffb703; /* warm accent */
 }
 
 *{ box-sizing:border-box; }
 html,body{ margin:0; padding:0; }
 body{
   font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
-  background:linear-gradient(180deg, #0b0f17 0%, #0b0f17 40%, #0f172a 100%);
+  background:linear-gradient(180deg, #0a0a0a 0%, #0a0a0a 40%, #0e0e0e 100%);
   color:var(--ink);
   line-height:1.6;
 }
@@ -21,23 +22,25 @@ body{
 
 .site-header{
   position:sticky; top:0; backdrop-filter:blur(10px);
-  background:rgba(11,15,23,0.6); border-bottom:1px solid rgba(56,189,248,0.15);
+  background:rgba(10,10,10,0.6);
+  border-bottom:1px solid rgba(255,214,10,0.25);
   z-index:20;
 }
 .nav{ display:flex; align-items:center; justify-content:space-between; padding:12px 4vw; }
 .logo{ color:var(--ink); text-decoration:none; font-weight:800; font-size:1.2rem; letter-spacing:1px; }
 .nav-links{ display:flex; gap:18px; list-style:none; margin:0; padding:0; }
 .nav-links a{ color:var(--ink); text-decoration:none; padding:8px 10px; border-radius:8px; }
-.nav-links a:hover{ background:rgba(56,189,248,0.12); color:white; }
+.nav-links a:hover{ background:rgba(255,214,10,0.12); color:var(--ink); }
 .nav-toggle{ display:none; background:none; border:1px solid rgba(229,231,235,0.2); color:var(--ink); padding:6px 10px; border-radius:8px; }
 
 .section{ padding:72px 0; }
-.section.alt{ background: radial-gradient(1200px 400px at 50% -10%, rgba(56,189,248,0.08), transparent); }
+.section.alt{ background: radial-gradient(1200px 400px at 50% -10%, rgba(255,214,10,0.08), transparent); }
 
 .hero{
   padding:96px 0 72px;
-  background: radial-gradient(800px 400px at 20% 10%, rgba(139,92,246,0.15), transparent),
-              radial-gradient(800px 400px at 80% 0%, rgba(56,189,248,0.14), transparent);
+  background:
+    radial-gradient(800px 400px at 20% 10%, rgba(255,183,3,0.18), transparent),
+    radial-gradient(800px 400px at 80% 0%, rgba(255,214,10,0.18), transparent);
 }
 .hero-content{ display:grid; grid-template-columns: 1.4fr 1fr; gap:40px; align-items:center; width:min(1100px,92%); margin:0 auto; }
 .hero-text h1{ font-size:2.4rem; margin:0 0 6px; letter-spacing:0.5px; }
@@ -45,12 +48,12 @@ body{
 .hero-text p{ color:var(--ink); opacity:0.9; margin-bottom:20px; }
 .hero-ctas{ display:flex; gap:12px; margin-bottom:10px; }
 .hero-meta{ display:flex; gap:16px; flex-wrap:wrap; color:var(--muted); font-size:0.95rem; }
-.hero-meta a{ color:var(--muted); text-decoration:none; }
-.hero-meta a:hover{ color:var(--ink); }
+.hero-meta a{ color:#e8e8e8; text-decoration:none; }
+.hero-meta a:hover{ color:var(--brand2); }
 
 .hero-photo img{
   width:100%; max-width:320px; border-radius:16px; display:block; margin:0 auto;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 0 0 1px rgba(56,189,248,0.25) inset;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,214,10,0.35) inset;
 }
 
 h3{ font-size:1.6rem; margin:0 0 18px; }
@@ -63,20 +66,26 @@ h4{ margin:0 0 10px; font-size:1.1rem; }
   display:grid; grid-template-columns: repeat(2, 1fr); gap:16px;
 }
 .skill-card{
-  background:var(--card); border:1px solid rgba(229,231,235,0.08); border-radius:12px;
+  background:var(--card);
+  border:1px solid rgba(255,214,10,0.15);
+  border-radius:12px;
   padding:16px;
 }
 
 .timeline{ display:grid; gap:18px; }
 .timeline-item{
-  background:var(--card); border:1px solid rgba(229,231,235,0.08); border-radius:12px; padding:16px;
+  background:var(--card);
+  border:1px solid rgba(255,214,10,0.15);
+  border-radius:12px; padding:16px;
 }
 
 .projects-grid{
   display:grid; grid-template-columns: repeat(3, 1fr); gap:16px;
 }
 .project-card{
-  background:var(--card); border:1px solid rgba(229,231,235,0.08); border-radius:12px; padding:16px;
+  background:var(--card);
+  border:1px solid rgba(255,214,10,0.15);
+  border-radius:12px; padding:16px;
 }
 .project-card .tech{ color:var(--muted); font-size:0.95rem; margin-top:8px; }
 .project-card .links{ display:flex; gap:10px; margin-top:12px; }
@@ -85,20 +94,23 @@ h4{ margin:0 0 10px; font-size:1.1rem; }
 .contact-list li{ margin:6px 0; color:var(--ink); }
 
 .btn{
-  display:inline-block; background:linear-gradient(90deg, var(--brand), var(--accent));
-  color:white; text-decoration:none; padding:10px 14px; border-radius:10px; font-weight:600;
-  border:1px solid rgba(255,255,255,0.1);
+  display:inline-block;
+  background:linear-gradient(90deg, var(--brand), var(--accent));
+  color:#111; /* dark text on yellow */
+  text-decoration:none;
+  padding:10px 14px; border-radius:10px; font-weight:700;
+  border:1px solid rgba(0,0,0,0.2);
 }
-.btn:hover{ filter:brightness(1.05); }
+.btn:hover{ filter:brightness(1.03); }
 .btn-secondary{
   background:transparent; color:var(--ink);
-  border:1px solid rgba(56,189,248,0.4);
+  border:1px solid rgba(255,214,10,0.5);
 }
 .btn-small{ padding:8px 12px; font-size:0.92rem; }
 
 .site-footer{
-  border-top:1px solid rgba(56,189,248,0.15); padding:24px 0; color:var(--muted);
-  background:rgba(0,0,0,0.2);
+  border-top:1px solid rgba(255,214,10,0.25); padding:24px 0; color:var(--muted);
+  background:rgba(0,0,0,0.25);
 }
 
 /* Responsive */
@@ -108,7 +120,7 @@ h4{ margin:0 0 10px; font-size:1.1rem; }
 }
 @media (max-width: 640px){
   .nav-toggle{ display:block; }
-  .nav-links{ display:none; position:absolute; right:16px; top:56px; background:var(--card); border:1px solid rgba(229,231,235,0.1); border-radius:12px; padding:10px; }
+  .nav-links{ display:none; position:absolute; right:16px; top:56px; background:var(--card); border:1px solid rgba(255,214,10,0.15); border-radius:12px; padding:10px; }
   .nav-links.show{ display:block; }
   .skills-grid, .projects-grid{ grid-template-columns:1fr; }
 }
