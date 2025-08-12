@@ -147,6 +147,46 @@ h4{ margin:0 0 10px; font-size:1.1rem; }
   filter:brightness(1.05);
 }
 
+.radar-wrap{
+  margin-top:18px;
+  background:var(--card);
+  border:1px solid rgba(255,214,10,0.15);
+  border-radius:12px;
+  padding:16px;
+}
+#skillRadar{
+  width:100%;
+  max-width:520px;
+  display:block;
+  margin:auto;
+}
+.radar-legend{
+  margin-top:10px;
+  color:var(--muted);
+  text-align:center;
+  font-size:0.9rem;
+}
+.radar-axis text{
+  fill: var(--ink);
+  opacity:0.9;
+  font-size:12px;
+}
+.radar-grid line,
+.radar-grid polygon{
+  stroke: rgba(255,214,10,0.15);
+  fill:none;
+}
+.radar-shape{
+  fill: rgba(255,214,10,0.12);
+  stroke: var(--brand);
+  stroke-width:2;
+}
+.radar-points circle{
+  fill: var(--accent);
+  stroke: #000;
+  stroke-width:2;
+}
+
 /* Responsive */
 @media (max-width: 900px){
   .hero-content{ grid-template-columns: 1fr; text-align:left; }
