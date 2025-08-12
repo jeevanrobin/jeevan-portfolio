@@ -128,3 +128,108 @@ const y = document.getElementById('year'); if (y) y.textContent = new Date().get
     draw();
   }
 })();
+
+// ==== Custom cursor (dot + ring with easing) ====
+(function(){
+if (!window.matchMedia || !matchMedia('(pointer:fine)').matches) {
+  // optional: show native cursor on all devices
+  // You can return here to skip custom cursor scripts
+  // Example:
+  //
+  return;
+}
+const root = document.documentElement;
+const cur = document.getElementById('cursor');
+if (!cur) return;
+const dot = cur.querySelector('.dot');
+const ring = cur.querySelector('.ring');
+
+let mx = window.innerWidth/2, my = window.innerHeight/2; // mouse
+let rx = mx, ry = my; // ring position (eased)
+const ease = 0.18;
+
+function onMove(e){
+  mx = e.clientX; my = e.clientY;
+}
+function tick(){
+  rx += (mx - rx) * ease;
+  ry += (my - ry) * ease;
+  dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(tick);
+}
+window.addEventListener('mousemove', onMove, { passive:true });
+requestAnimationFrame(tick);
+
+// Hover state for interactive elements
+const hoverables = 'a, button, .magnet, .tile';
+document.addEventListener('mouseover', e=>{
+  if (e.target.closest(hoverables)) cur.classList.add('cursor--hover');
+});
+document.addEventListener('mouseout', e=>{
+  if (e.target.closest(hoverables)) cur.classList.remove('cursor--hover');
+});
+
+// Click pulse
+document.addEventListener('mousedown', ()=>{
+  const p = document.createElement('div');
+  p.className = 'pulse';
+  p.style.left = mx+'px'; p.style.top = my+'px';
+  cur.appendChild(p);
+  setTimeout(()=>p.remove(), 520);
+});
+})();
+
+// ==== Magnetic hover on elements with .magnet ====
+(function(){
+const strength = 18; // px pull at edge
+const mags = document.querySelectorAll('.magnet');
+mags.forEach(el=>{
+  let raf = 0;
+  function move(e){
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - (r.left + r.width/2)) / (r.width/2);
+    const y = (e.clientY - (r.top + r.height/2)) / (r.height/2);
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(()=>{
+      el.style.transform = `translate(${x*strength}px, ${y*strength}px)`;
+    });
+  }
+  function leave(){
+    el.style.transform = 'translate(0,0)';
+  }
+  el.addEventListener('mousemove', move);
+  el.addEventListener('mouseleave', leave);
+});
+})();
+
+// ==== Tile spotlight: follow cursor with easing per tile ====
+(function(){
+const tiles = document.querySelectorAll('.tile');
+tiles.forEach(tile=>{
+  let sx = 0, sy = 0, tx = 0, ty = 0;
+  const ease = 0.22;
+
+  function update() {
+    sx += (tx - sx) * ease;
+    sy += (ty - sy) * ease;
+    tile.style.setProperty('--spot-x', sx + '%');
+    tile.style.setProperty('--spot-y', sy + '%');
+    raf = requestAnimationFrame(update);
+  }
+  let raf = requestAnimationFrame(update);
+
+  function onMove(e){
+    const r = tile.getBoundingClientRect();
+    const x = ((e.clientX - r.left) / r.width) * 100;
+    const y = ((e.clientY - r.top) / r.height) * 100;
+    tx = x; ty = y;
+  }
+  function onLeave(){
+    tx = 100; ty = 0; // park light to top-right corner
+  }
+  tile.addEventListener('mousemove', onMove);
+  tile.addEventListener('mouseleave', onLeave);
+  onLeave();
+});
+})();

@@ -6,6 +6,8 @@
   --orange:#ff7b24;
   --mint:#6ef7b3;
   --accent:#ffd60a;
+  --cursor-dot:#ffd60a; /* inner dot color */
+  --cursor-ring:rgba(255,214,10,.35); /* ring color */
 }
 
 *{box-sizing:border-box}
@@ -134,6 +136,64 @@ body::after{
 /* Reveal */
 .reveal{ opacity:0; transform: translateY(12px) }
 .reveal.in{ opacity:1; transform:none; transition: opacity 420ms ease, transform 420ms ease }
+
+/* === Custom Cursor and Tile Spotlight === */
+/* Hide native cursor on desktop (keeps it on mobile) */
+@media (pointer:fine){
+  body{ cursor:none; }
+  a, button{ cursor:none; }
+}
+
+/* Custom cursor elements */
+.cursor{
+  position:fixed; inset:auto; z-index:9999; pointer-events:none;
+  mix-blend-mode:normal; /* change to difference if you like */
+}
+.cursor .dot{
+  position:absolute; width:6px; height:6px; border-radius:50%;
+  background:var(--cursor-dot);
+  transform:translate(-50%,-50%);
+}
+.cursor .ring{
+  position:absolute; width:28px; height:28px; border-radius:50%;
+  border:2px solid var(--cursor-ring);
+  transform:translate(-50%,-50%);
+  transition: width .18s ease, height .18s ease, border-color .2s ease, opacity .2s ease;
+  opacity:.9;
+}
+/* Hover grow when on interactive elements */
+.cursor--hover .ring{ width:40px; height:40px; border-color:rgba(255,214,10,.55); }
+
+/* Click pulse */
+.cursor .pulse{
+  position:absolute; width:6px; height:6px; border-radius:50%;
+  border:2px solid var(--cursor-ring);
+  transform:translate(-50%,-50%) scale(1);
+  opacity:.9; animation: pulseOut .5s ease forwards;
+}
+@keyframes pulseOut{
+  to{ transform:translate(-50%,-50%) scale(2.6); opacity:0; }
+}
+
+/* Magnetic effect (light boost; JS sets transform) */
+.magnet{ display:inline-block; will-change:transform; transition: transform .18s ease; }
+
+/* Tile spotlight (cursor-follow variant) */
+.tile{ position:relative; overflow:hidden; }
+.tile::before{
+  content:""; position:absolute; width:360px; height:360px; border-radius:50%;
+  left:var(--spot-x, 100%); top:var(--spot-y, 0%); transform:translate(-50%,-50%);
+  background: radial-gradient(circle at center, rgba(255,255,255,.14), transparent 60%);
+  opacity:.22; filter:blur(2px);
+  transition: opacity .2s ease;
+}
+.tile:hover::before{ opacity:.35; }
+
+/* Data attributes to tune spotlight per tile */
+.tile[data-spot-size="sm"]::before{ width:260px; height:260px; }
+.tile[data-spot-size="lg"]::before{ width:480px; height:480px; }
+.tile[data-spot-opacity="soft"]::before{ opacity:.16; }
+.tile[data-spot-opacity="bold"]::before{ opacity:.42; }
 
 /* Responsive */
 @media (max-width: 940px){
