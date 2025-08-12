@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>M Jeevan Reddy — GCP DevOps Engineer</title>
-  <meta name="description" content="Portfolio of M Jeevan Reddy, GCP DevOps Engineer specializing in GKE, Terraform, CI/CD, and Cloud Observability." />
+  <meta name="description" content="Portfolio of M Jeevan Reddy, GCP DevOps Engineer specializing in GKE, Terraform, CI/CD, and Observability." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Header -->
   <header class="site-header">
     <nav class="nav">
       <a class="logo" href="#hero">JR</a>
@@ -19,7 +20,7 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact" class="btn btn-small">Contact</a></li>
+        <li><a href="#contact" class="btn btn-small magnetic">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -27,7 +28,7 @@
   <main>
     <!-- Hero -->
     <section id="hero" class="hero section">
-      <div class="hero-content">
+      <div class="hero-content reveal">
         <div class="hero-text">
           <h1>M Jeevan Reddy</h1>
           <h2>GCP DevOps Engineer</h2>
@@ -35,8 +36,8 @@
             I build reliable cloud infrastructure on GCP and AWS, automate delivery with CI/CD, and optimize Kubernetes workloads at scale.
           </p>
           <div class="hero-ctas">
-            <a class="btn" href="#projects">View Projects</a>
-            <a class="btn btn-secondary" href="assets/resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+            <a class="btn magnetic" href="#projects">View Projects</a>
+            <a class="btn btn-secondary magnetic" href="assets/resume.pdf" target="_blank" rel="noopener">Download Resume</a>
           </div>
           <div class="hero-meta">
             <a href="mailto:medidajeevanreddy499@gmail.com">medidajeevanreddy499@gmail.com</a>
@@ -53,7 +54,7 @@
 
     <!-- About -->
     <section id="about" class="section">
-      <div class="container">
+      <div class="container panel reveal">
         <h3>About</h3>
         <p>
           GCP-focused DevOps Engineer with strong hands-on experience in Kubernetes (GKE), Terraform, CI/CD (Jenkins, Cloud Build), observability (Cloud Monitoring, Logging, Prometheus, Grafana), and automation with Bash/Python. I design secure, scalable infrastructure, streamline delivery pipelines, and help teams ship faster with confidence.
@@ -69,7 +70,7 @@
 
     <!-- Skills -->
     <section id="skills" class="section alt">
-      <div class="container">
+      <div class="container reveal">
         <h3>Skills</h3>
 
         <div class="skills-grid">
@@ -106,51 +107,15 @@
             <p>Linux (Ubuntu, CentOS), Windows</p>
           </div>
         </div>
-
-        <!-- Skill bars start -->
-        <div class="skill-bars">
-          <div class="skill">
-            <span>GCP</span>
-            <div class="bar"><div style="--pct:92%"></div></div>
-          </div>
-          <div class="skill">
-            <span>Kubernetes (GKE)</span>
-            <div class="bar"><div style="--pct:88%"></div></div>
-          </div>
-          <div class="skill">
-            <span>Terraform</span>
-            <div class="bar"><div style="--pct:85%"></div></div>
-          </div>
-          <div class="skill">
-            <span>Jenkins / CI-CD</span>
-            <div class="bar"><div style="--pct:86%"></div></div>
-          </div>
-          <div class="skill">
-            <span>Prometheus / Grafana</span>
-            <div class="bar"><div style="--pct:80%"></div></div>
-          </div>
-        </div>
-        <!-- Skill bars end -->
-
-        <!-- Skill radar start -->
-        <div class="radar-wrap">
-          <h4 style="margin:0 0 10px;">Skill Radar</h4>
-          <svg id="skillRadar" viewBox="0 0 300 300" role="img" aria-label="Skill radar"></svg>
-          <div class="radar-legend">
-            <span><b>Scale:</b> 0–100</span>
-          </div>
-        </div>
-        <!-- Skill radar end -->
-
       </div>
     </section>
 
     <!-- Experience -->
     <section id="experience" class="section">
-      <div class="container">
+      <div class="container reveal">
         <h3>Experience</h3>
         <div class="timeline">
-          <article class="timeline-item">
+          <article class="timeline-item reveal">
             <div class="timeline-header">
               <h4>HCL</h4>
               <span class="meta">Jun 2021 — Jun 2023 • DevOps Engineer</span>
@@ -163,7 +128,7 @@
             </ul>
           </article>
 
-          <article class="timeline-item">
+          <article class="timeline-item reveal">
             <div class="timeline-header">
               <h4>Smartried</h4>
               <span class="meta">Jun 2017 — May 2021 • DevOps Engineer</span>
@@ -184,36 +149,42 @@
 
     <!-- Projects -->
     <section id="projects" class="section alt">
-      <div class="container">
+      <div class="container reveal">
         <h3>Projects</h3>
         <div class="projects-grid">
-          <article class="project-card">
+          <article class="project-card reveal">
             <h4>GKE Microservices Platform</h4>
             <p>Provisioned GKE with Terraform; implemented blue/green deployments, HPA, and centralized logging/metrics via Cloud Logging and Prometheus.</p>
-            <p class="tech">GCP, GKE, Terraform, Prometheus, Grafana, Cloud Monitoring</p>
+            <p class="tech">
+              <span class="chip">GCP</span><span class="chip">GKE</span><span class="chip">Terraform</span><span class="chip">Prometheus</span><span class="chip">Grafana</span>
+            </p>
             <div class="links">
-              <a href="#" class="btn btn-small">Case Study</a>
-              <a href="#" class="btn btn-small btn-secondary">Repo</a>
+              <a href="#" class="btn btn-small magnetic">Case Study</a>
+              <a href="#" class="btn btn-small btn-secondary magnetic">Repo</a>
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card reveal">
             <h4>CI/CD with Jenkins + Maven</h4>
             <p>End-to-end pipeline including build, unit tests, quality gates (SonarQube), artifact versioning, and deployment to staging/production.</p>
-            <p class="tech">Jenkins, Maven, Git, SonarQube, Ansible</p>
+            <p class="tech">
+              <span class="chip">Jenkins</span><span class="chip">Maven</span><span class="chip">Git</span><span class="chip">SonarQube</span><span class="chip">Ansible</span>
+            </p>
             <div class="links">
-              <a href="#" class="btn btn-small">Pipeline Docs</a>
-              <a href="#" class="btn btn-small btn-secondary">Jenkinsfile</a>
+              <a href="#" class="btn btn-small magnetic">Pipeline Docs</a>
+              <a href="#" class="btn btn-small btn-secondary magnetic">Jenkinsfile</a>
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card reveal">
             <h4>AWS Infra as Code</h4>
             <p>Reusable Terraform modules to provision EC2, VPC, subnets, NAT/IGW, ALB, and autoscaling groups; parameterized per environment.</p>
-            <p class="tech">AWS, Terraform, EC2, VPC, ALB, ASG</p>
+            <p class="tech">
+              <span class="chip">AWS</span><span class="chip">Terraform</span><span class="chip">EC2</span><span class="chip">VPC</span><span class="chip">ALB</span>
+            </p>
             <div class="links">
-              <a href="#" class="btn btn-small">Module Overview</a>
-              <a href="#" class="btn btn-small btn-secondary">Repo</a>
+              <a href="#" class="btn btn-small magnetic">Module Overview</a>
+              <a href="#" class="btn btn-small btn-secondary magnetic">Repo</a>
             </div>
           </article>
         </div>
@@ -222,7 +193,7 @@
 
     <!-- Contact -->
     <section id="contact" class="section">
-      <div class="container">
+      <div class="container panel reveal">
         <h3>Contact</h3>
         <p>Open to roles in DevOps, Cloud Engineering, and SRE. Reach out for collaborations or opportunities.</p>
         <ul class="contact-list">
@@ -232,7 +203,7 @@
           <li><strong>GitHub:</strong> <a href="https://github.com/jeevanrobin" target="_blank" rel="noopener">github.com/jeevanrobin</a></li>
           <li><strong>X:</strong> <a href="#" target="_blank" rel="noopener">Add your link</a></li>
         </ul>
-        <a class="btn" href="mailto:medidajeevanreddy499@gmail.com?subject=Opportunity%20for%20GCP%20DevOps%20Engineer">Email Me</a>
+        <a class="btn magnetic" href="mailto:medidajeevanreddy499@gmail.com?subject=Opportunity%20for%20GCP%20DevOps%20Engineer">Email Me</a>
       </div>
     </section>
   </main>
