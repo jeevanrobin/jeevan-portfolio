@@ -131,38 +131,38 @@ const y = document.getElementById('year'); if (y) y.textContent = new Date().get
 
 // ==== Custom cursor (dot + ring with easing) ====
 (function(){
-if (!window.matchMedia || !matchMedia('(pointer:fine)').matches) {
-  // optional: show native cursor on all devices
-  // You can return here to skip custom cursor scripts
-  // Example:
-  //
-  return;
-}
+// Guard: prevent multiple initializations on hot reloads
+if (!window.__cursorInit){
+window.__cursorInit = true;
+
+(function(){
+// Skip on touch devices
+if (!window.matchMedia || !matchMedia('(pointer:fine)').matches) return;
+
 const root = document.documentElement;
 const cur = document.getElementById('cursor');
 if (!cur) return;
-const dot = cur.querySelector('.dot');
-const ring = cur.querySelector('.ring');
 
-let mx = window.innerWidth/2, my = window.innerHeight/2; // mouse
-let rx = mx, ry = my; // ring position (eased)
-const ease = 0.18;
+const dot  = cur.querySelector('.cursor__dot');
+const ring = cur.querySelector('.cursor__ring');
+
+// Mouse and eased ring positions
+let mx = innerWidth/2, my = innerHeight/2;
+let rx = mx, ry = my;
+
+// Use a time-based smoothing for consistent feel across refresh rates
+let last = performance.now();
+const baseEase = 0.18;
 
 function onMove(e){
-  mx = e.clientX; my = e.clientY;
+  // clientX/clientY are in CSS pixels; no need to scale for DPR
+  mx = e.clientX;
+  my = e.clientY;
 }
-function tick(){
-  rx += (mx - rx) * ease;
-  ry += (my - ry) * ease;
-  dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-  requestAnimationFrame(tick);
-}
-window.addEventListener('mousemove', onMove, { passive:true });
-requestAnimationFrame(tick);
+window.addEventListener('mousemove', onMove, { passive: true });
 
-// Hover state for interactive elements
-const hoverables = 'a, button, .magnet, .tile';
+// Hover state on interactive elements
+const hoverables = 'a,button,.magnet,.tile';
 document.addEventListener('mouseover', e=>{
   if (e.target.closest(hoverables)) cur.classList.add('cursor--hover');
 });
@@ -173,11 +173,41 @@ document.addEventListener('mouseout', e=>{
 // Click pulse
 document.addEventListener('mousedown', ()=>{
   const p = document.createElement('div');
-  p.className = 'pulse';
-  p.style.left = mx+'px'; p.style.top = my+'px';
+  p.className = 'cursor__pulse';
+  p.style.left = mx + 'px';
+  p.style.top  = my + 'px';
   cur.appendChild(p);
   setTimeout(()=>p.remove(), 520);
 });
+
+// Resize safety to keep cursor on canvas
+window.addEventListener('mouseleave', ()=>{
+  // Park off-screen to avoid a dot stuck at edges
+  mx = -100; my = -100;
+});
+window.addEventListener('mouseenter', (e)=>{
+  mx = e.clientX; my = e.clientY;
+});
+
+// Animation loop
+function frame(now){
+  const dt = Math.min(32, now - last); // clamp to avoid huge jumps
+  last = now;
+
+  const ease = 1 - Math.pow(1 - baseEase, dt / 16.67); // normalize to ~60fps
+  rx += (mx - rx) * ease;
+  ry += (my - ry) * ease;
+
+  // Apply positions
+  dot.style.left = mx + 'px';
+  dot.style.top  = my + 'px';
+  ring.style.left = rx + 'px';
+  ring.style.top  = ry + 'px';
+
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+})();
 })();
 
 // ==== Magnetic hover on elements with .magnet ====

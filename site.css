@@ -140,39 +140,45 @@ body::after{
 /* === Custom Cursor and Tile Spotlight === */
 /* Hide native cursor on desktop (keeps it on mobile) */
 @media (pointer:fine){
-  body{ cursor:none; }
-  a, button{ cursor:none; }
+  html, body, a, button { cursor: none; }
 }
 
-/* Custom cursor elements */
 .cursor{
-  position:fixed; inset:auto; z-index:9999; pointer-events:none;
-  mix-blend-mode:normal; /* change to difference if you like */
+  position: fixed;
+  inset: auto;
+  z-index: 9999;
+  pointer-events: none;
+  contain: layout style paint;
+  mix-blend-mode: normal; /* change to 'difference' if desired */
 }
-.cursor .dot{
-  position:absolute; width:6px; height:6px; border-radius:50%;
-  background:var(--cursor-dot);
-  transform:translate(-50%,-50%);
+.cursor__dot{
+  position: absolute;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #ffd60a; /* inner dot */
+  transform: translate(-50%,-50%);
 }
-.cursor .ring{
-  position:absolute; width:28px; height:28px; border-radius:50%;
-  border:2px solid var(--cursor-ring);
-  transform:translate(-50%,-50%);
-  transition: width .18s ease, height .18s ease, border-color .2s ease, opacity .2s ease;
-  opacity:.9;
+.cursor__ring{
+  position: absolute;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,214,10,0.35);
+  transform: translate(-50%,-50%);
+  transition: width .18s ease, height .18s ease, border-color .18s ease, opacity .18s ease;
+  opacity: .9;
 }
-/* Hover grow when on interactive elements */
-.cursor--hover .ring{ width:40px; height:40px; border-color:rgba(255,214,10,.55); }
-
-/* Click pulse */
-.cursor .pulse{
-  position:absolute; width:6px; height:6px; border-radius:50%;
-  border:2px solid var(--cursor-ring);
-  transform:translate(-50%,-50%) scale(1);
-  opacity:.9; animation: pulseOut .5s ease forwards;
+.cursor--hover .cursor__ring{ width: 40px; height: 40px; border-color: rgba(255,214,10,.55); }
+.cursor__pulse{
+  position: absolute;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,214,10,.35);
+  transform: translate(-50%,-50%) scale(1);
+  opacity: .9;
+  animation: cursorPulse .5s ease forwards;
 }
-@keyframes pulseOut{
-  to{ transform:translate(-50%,-50%) scale(2.6); opacity:0; }
+@keyframes cursorPulse{
+  to{ transform: translate(-50%,-50%) scale(2.6); opacity: 0; }
 }
 
 /* Magnetic effect (light boost; JS sets transform) */
