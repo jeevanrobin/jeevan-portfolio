@@ -1,218 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>M Jeevan Reddy — GCP DevOps Engineer</title>
-  <meta name="description" content="Portfolio of M Jeevan Reddy, GCP DevOps Engineer specializing in GKE, Terraform, CI/CD, and Observability." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>M Jeevan Reddy — Portfolio</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
 </head>
-<body>
-  <div class="layout">
-    <!-- Sidebar (sticky) -->
-    <aside class="sidebar">
-      <a class="brand" href="#top">JR</a>
-
-      <div class="profile">
-        <img src="assets/profile.jpg" alt="M Jeevan Reddy headshot" />
-        <h1>M Jeevan Reddy</h1>
-        <h2>GCP DevOps Engineer</h2>
-        <p class="tagline">Kubernetes, Terraform, CI/CD, Observability</p>
+<body class="home">
+  <main class="grid2">
+    <!-- Brand -->
+    <section class="cell brand">
+      <div class="brand-inner">
+        <img class="logo" src="assets/logo.svg" alt="JR logo">
+        <h1 class="signature">M Jeevan Reddy</h1>
+        <div class="icons">
+          <a href="mailto:medidajeevanreddy499@gmail.com" aria-label="Email">✉️</a>
+          <a href="https://github.com/jeevanrobin" target="_blank" rel="noopener" aria-label="GitHub"></a>
+          <a href="https://www.linkedin.com/in/jeevanrobin" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        </div>
       </div>
-
-      <nav class="side-nav">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <a class="btn" href="assets/resume.pdf" target="_blank" rel="noopener">Download Resume</a>
-      </nav>
-
-      <div class="socials">
-        <a href="mailto:medidajeevanreddy499@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/jeevanrobin" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/jeevanrobin" target="_blank" rel="noopener">GitHub</a>
-        <a href="#" target="_blank" rel="noopener">X</a>
+    </section>
+    <!-- Tiles -->
+    <a class="cell tile" href="about.html#projects" data-accent="orange">
+      <div class="tile-inner">
+        <h2 class="tile-title">WORKS</h2>
+        <p>Things I’ve done.</p>
       </div>
-
-      <footer class="side-footer">
-        <span>© <span id="year"></span> MJR</span>
-      </footer>
-    </aside>
-
-    <!-- Main content -->
-    <main class="content" id="top">
-      <!-- Hero intro -->
-      <section class="hero reveal">
-        <h3 class="eyebrow">Hello, I’m Jeevan</h3>
-        <h2 class="hero-title">I engineer reliable cloud systems on GCP and AWS, automate delivery with CI/CD, and keep Kubernetes healthy at scale.</h2>
-        <div class="hero-ctas">
-          <a class="btn" href="#projects">View Projects</a>
-          <a class="btn btn-outline" href="#contact">Hire Me</a>
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="section reveal">
-        <h3 class="section-title">About</h3>
-        <p>
-          GCP-focused DevOps Engineer with strong hands-on experience in Kubernetes (GKE), Terraform, CI/CD (Jenkins, Cloud Build), and observability (Cloud Monitoring, Logging, Prometheus, Grafana). I design secure, scalable infrastructure and streamline delivery pipelines so teams ship faster with confidence.
-        </p>
-        <ul class="bullets">
-          <li>GKE: blue/green and rolling deployments, autoscaling, observability.</li>
-          <li>IaC: Terraform modules, multi-env provisioning, policy-as-code.</li>
-          <li>CI/CD: Jenkins, GitHub/GitLab, Maven, SonarQube, Cloud Build.</li>
-          <li>Security: IAM, Secret Manager, least-privilege by default.</li>
-        </ul>
-      </section>
-
-      <!-- Skills -->
-      <section id="skills" class="section reveal">
-        <h3 class="section-title">Skills</h3>
-
-        <div class="cards">
-          <article class="card">
-            <h4>Cloud Platforms</h4>
-            <p>GCP: Compute Engine, GKE, Cloud Storage, VPC, IAM, Pub/Sub, Cloud Functions, Cloud SQL, BigQuery, Load Balancing, Filestore, Cloud DNS, Secret Manager, Monitoring, Logging, KMS</p>
-          </article>
-          <article class="card">
-            <h4>DevOps & CI/CD</h4>
-            <p>Jenkins, Cloud Build, Git, GitHub, GitLab, Maven, SonarQube</p>
-          </article>
-          <article class="card">
-            <h4>Infrastructure as Code</h4>
-            <p>Terraform, Deployment Manager, Ansible</p>
-          </article>
-          <article class="card">
-            <h4>Containers & Orchestration</h4>
-            <p>Docker, Kubernetes (GKE)</p>
-          </article>
-          <article class="card">
-            <h4>Monitoring & Observability</h4>
-            <p>Cloud Monitoring, Prometheus, Grafana, Cloud Logging</p>
-          </article>
-          <article class="card">
-            <h4>Scripting & Automation</h4>
-            <p>Bash, Python</p>
-          </article>
-          <article class="card">
-            <h4>Security</h4>
-            <p>GCP IAM, Secret Manager, Cloud Identity</p>
-          </article>
-          <article class="card">
-            <h4>Operating Systems</h4>
-            <p>Linux (Ubuntu, CentOS), Windows</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- Experience -->
-      <section id="experience" class="section reveal">
-        <h3 class="section-title">Experience</h3>
-
-        <article class="exp">
-          <header>
-            <h4>HCL</h4>
-            <span class="meta">Jun 2021 — Jun 2023 • DevOps Engineer</span>
-          </header>
-          <ul>
-            <li>Provisioned AWS infrastructure using Terraform with reusable modules for EC2, VPC, and networking.</li>
-            <li>Implemented CI with Jenkins and Maven; automated build, deploy, and test across targets.</li>
-            <li>Integrated Jenkins with Git (webhooks), enabling continuous deployment workflows.</li>
-            <li>Managed Jenkins as a service with distributed build agents.</li>
-          </ul>
-        </article>
-
-        <article class="exp">
-          <header>
-            <h4>Smartried</h4>
-            <span class="meta">Jun 2017 — May 2021 • DevOps Engineer</span>
-          </header>
-          <ul>
-            <li>Launched and managed EC2 instances; configured Linux/Ubuntu environments.</li>
-            <li>CloudWatch alarms, log insights, and automated actions for reliability.</li>
-            <li>Release management with Git/GitHub; Maven builds with Jenkins and SonarQube.</li>
-            <li>Deployed Java apps to Apache/Tomcat; managed AMIs, S3, VPCs, ELB, and Auto Scaling.</li>
-            <li>Automated config with Ansible; Dockerfiles and container image management.</li>
-            <li>RDS, S3, Route 53, migrations from on‑prem to cloud; EC2 troubleshooting and bootstrap.</li>
-            <li>Hardened SSH and optimized package management with YUM/RPM.</li>
-          </ul>
-        </article>
-      </section>
-
-      <!-- Projects -->
-      <section id="projects" class="section reveal">
-        <h3 class="section-title">Projects</h3>
-
-        <div class="projects">
-          <article class="proj">
-            <div class="proj-header">
-              <h4>GKE Microservices Platform</h4>
-              <div class="tags">
-                <span>GCP</span><span>GKE</span><span>Terraform</span><span>Prometheus</span><span>Grafana</span>
-              </div>
-            </div>
-            <p>Provisioned GKE with Terraform; implemented blue/green deployments, HPA, and centralized logging/metrics via Cloud Logging and Prometheus.</p>
-            <div class="proj-links">
-              <a href="#" class="btn btn-small">Case Study</a>
-              <a href="#" class="btn btn-small btn-outline">Repo</a>
-            </div>
-          </article>
-
-          <article class="proj">
-            <div class="proj-header">
-              <h4>CI/CD with Jenkins + Maven</h4>
-              <div class="tags">
-                <span>Jenkins</span><span>Maven</span><span>Git</span><span>SonarQube</span><span>Ansible</span>
-              </div>
-            </div>
-            <p>End-to-end pipeline including build, unit tests, quality gates, artifact versioning, and deployment to staging/production.</p>
-            <div class="proj-links">
-              <a href="#" class="btn btn-small">Pipeline Docs</a>
-              <a href="#" class="btn btn-small btn-outline">Jenkinsfile</a>
-            </div>
-          </article>
-
-          <article class="proj">
-            <div class="proj-header">
-              <h4>AWS Infra as Code</h4>
-              <div class="tags">
-                <span>AWS</span><span>Terraform</span><span>EC2</span><span>VPC</span><span>ALB</span>
-              </div>
-            </div>
-            <p>Reusable Terraform modules to provision EC2, VPC, subnets, NAT/IGW, ALB, and autoscaling groups; parameterized per environment.</p>
-            <div class="proj-links">
-              <a href="#" class="btn btn-small">Module Overview</a>
-              <a href="#" class="btn btn-small btn-outline">Repo</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="section reveal">
-        <h3 class="section-title">Contact</h3>
-        <div class="contact">
-          <ul>
-            <li><strong>Email:</strong> <a href="mailto:medidajeevanreddy499@gmail.com">medidajeevanreddy499@gmail.com</a></li>
-            <li><strong>Location:</strong> Mutthagudem, Telangana, India</li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jeevanrobin" target="_blank" rel="noopener">linkedin.com/in/jeevanrobin</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/jeevanrobin" target="_blank" rel="noopener">github.com/jeevanrobin</a></li>
-            <li><strong>X:</strong> <a href="#" target="_blank" rel="noopener">Add your link</a></li>
-          </ul>
-          <a class="btn" href="mailto:medidajeevanreddy499@gmail.com?subject=Opportunity%20for%20GCP%20DevOps%20Engineer">Email Me</a>
-        </div>
-      </section>
-
-      <footer class="mobile-footer">
-        © <span id="year2"></span> M Jeevan Reddy
-      </footer>
-    </main>
-  </div>
-
-  <script src="script.js"></script>
+    </a>
+    <a class="cell tile" href="about.html#nuggets" data-accent="mint">
+      <div class="tile-inner">
+        <h2 class="tile-title">NUGGETS</h2>
+        <p>Bite‑sized posts that teach you something.</p>
+      </div>
+    </a>
+    <a class="cell tile" href="about.html#posts" data-accent="orange">
+      <div class="tile-inner">
+        <h2 class="tile-title">POSTS</h2>
+        <p>My ramblings about things that excite me.</p>
+      </div>
+    </a>
+  </main>
+  <script src="site.js"></script>
 </body>
 </html>
