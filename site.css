@@ -207,3 +207,8 @@ body::after{
   .brand{ grid-row:auto }
   .about-hero{ grid-template-columns:1fr; }
 }
+
+/* Only hide cursor if JS confirms custom cursor is running */
+body.hide-cursor { cursor: none; }
+body.hide-cursor a,
+body.hide-cursor button { cursor: none; }
