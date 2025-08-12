@@ -130,7 +130,6 @@ const y = document.getElementById('year'); if (y) y.textContent = new Date().get
 })();
 
 // ==== Custom cursor (dot + ring with easing) ====
-(function(){
 // Guard: prevent multiple initializations on hot reloads
 if (!window.__cursorInit){
 window.__cursorInit = true;
@@ -139,7 +138,6 @@ window.__cursorInit = true;
 // Skip on touch devices
 if (!window.matchMedia || !matchMedia('(pointer:fine)').matches) return;
 
-const root = document.documentElement;
 const cur = document.getElementById('cursor');
 if (!cur) return;
 
@@ -155,7 +153,6 @@ let last = performance.now();
 const baseEase = 0.18;
 
 function onMove(e){
-  // clientX/clientY are in CSS pixels; no need to scale for DPR
   mx = e.clientX;
   my = e.clientY;
 }
@@ -182,7 +179,6 @@ document.addEventListener('mousedown', ()=>{
 
 // Resize safety to keep cursor on canvas
 window.addEventListener('mouseleave', ()=>{
-  // Park off-screen to avoid a dot stuck at edges
   mx = -100; my = -100;
 });
 window.addEventListener('mouseenter', (e)=>{
@@ -191,14 +187,13 @@ window.addEventListener('mouseenter', (e)=>{
 
 // Animation loop
 function frame(now){
-  const dt = Math.min(32, now - last); // clamp to avoid huge jumps
+  const dt = Math.min(32, now - last);
   last = now;
 
-  const ease = 1 - Math.pow(1 - baseEase, dt / 16.67); // normalize to ~60fps
+  const ease = 1 - Math.pow(1 - baseEase, dt / 16.67);
   rx += (mx - rx) * ease;
   ry += (my - ry) * ease;
 
-  // Apply positions
   dot.style.left = mx + 'px';
   dot.style.top  = my + 'px';
   ring.style.left = rx + 'px';
@@ -208,11 +203,11 @@ function frame(now){
 }
 requestAnimationFrame(frame);
 })();
-})();
+}
 
 // ==== Magnetic hover on elements with .magnet ====
 (function(){
-const strength = 18; // px pull at edge
+const strength = 18;
 const mags = document.querySelectorAll('.magnet');
 mags.forEach(el=>{
   let raf = 0;
@@ -222,7 +217,7 @@ mags.forEach(el=>{
     const y = (e.clientY - (r.top + r.height/2)) / (r.height/2);
     cancelAnimationFrame(raf);
     raf = requestAnimationFrame(()=>{
-      el.style.transform = `translate(${x*strength}px, ${y*strength}px)`;
+      el.style.transform = `translate(${x*strength}px,${y*strength}px)`;
     });
   }
   function leave(){
@@ -237,29 +232,31 @@ mags.forEach(el=>{
 (function(){
 const tiles = document.querySelectorAll('.tile');
 tiles.forEach(tile=>{
-  let sx = 0, sy = 0, tx = 0, ty = 0;
+  let tx=100, ty=0, sx=tx, sy=ty, raf=0;
   const ease = 0.22;
 
-  function update() {
+  function step(){
     sx += (tx - sx) * ease;
     sy += (ty - sy) * ease;
     tile.style.setProperty('--spot-x', sx + '%');
     tile.style.setProperty('--spot-y', sy + '%');
-    raf = requestAnimationFrame(update);
+    raf = requestAnimationFrame(step);
   }
-  let raf = requestAnimationFrame(update);
+  raf = requestAnimationFrame(step);
 
   function onMove(e){
     const r = tile.getBoundingClientRect();
-    const x = ((e.clientX - r.left) / r.width) * 100;
-    const y = ((e.clientY - r.top) / r.height) * 100;
-    tx = x; ty = y;
+    tx = ((e.clientX - r.left)/r.width)*100;
+    ty = ((e.clientY - r.top )/r.height)*100;
   }
-  function onLeave(){
-    tx = 100; ty = 0; // park light to top-right corner
-  }
+  function onLeave(){ tx = 100; ty = 0; }
   tile.addEventListener('mousemove', onMove);
   tile.addEventListener('mouseleave', onLeave);
   onLeave();
 });
 })();
+
+<div id="cursor" class="cursor">
+  <div class="cursor__dot"></div>
+  <div class="cursor__ring"></div>
+</div>
